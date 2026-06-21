@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Cairo", "Tajawal", system-ui, sans-serif;
+  --color-navy-50: #eef3fb;
+  --color-navy-100: #d8e2f4;
+  --color-navy-200: #b1c2e9;
+  --color-navy-300: #7d97d6;
+  --color-navy-400: #4f6dbd;
+  --color-navy-500: #2f4ea3;
+  --color-navy-600: #1f3a85;
+  --color-navy-700: #16306f;
+  --color-navy-800: #0f2554;
+  --color-navy-900: #081a3d;
+  --color-navy-950: #040f25;
+}
+
+html, body {
+  font-family: "Cairo", "Tajawal", system-ui, sans-serif;
+  background: #f6f8fc;
+  color: #0f2554;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #eef3fb; }
+::-webkit-scrollbar-thumb { background: #1f3a85; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: #16306f; }
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  80%, 100% { transform: scale(2.4); opacity: 0; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes check-pop {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+@keyframes confetti-fall {
+  0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+.animate-fade-in-up { animation: fadeInUp 0.6s ease-out both; }
+.animate-fade-in { animation: fadeIn 0.5s ease-out both; }
+.animate-slide-in { animation: slideInRight 0.5s ease-out both; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-check-pop { animation: check-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+
+.gradient-bg {
+  background:
+    radial-gradient(ellipse at top right, rgba(47, 78, 163, 0.15), transparent 50%),
+    radial-gradient(ellipse at bottom left, rgba(31, 58, 133, 0.1), transparent 50%),
+    linear-gradient(180deg, #f6f8fc 0%, #eef3fb 100%);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #0f2554 0%, #2f4ea3 50%, #0f2554 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Form field focus ring */
+.field-input {
+  transition: all 0.25s ease;
+}
+.field-input:focus {
+  border-color: #1f3a85;
+  box-shadow: 0 0 0 4px rgba(31, 58, 133, 0.12);
+}
+
+/* Hide number input arrows */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+input[type=number] { -moz-appearance: textfield; }
